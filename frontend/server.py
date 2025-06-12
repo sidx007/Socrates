@@ -10,8 +10,8 @@ app = Flask(__name__, static_folder=".")
 # Configuration
 UPLOAD_FOLDER = tempfile.gettempdir()
 ALLOWED_EXTENSIONS = {'mp3', 'wav'}
-CLUSTER_API_URL = "http://localhost:8000/cluster"
-SUMMARIZE_API_URL = "http://localhost:8000/summarize"
+CLUSTER_API_URL = "http://rnlbe-34-10-192-241.a.free.pinggy.link/cluster"
+SUMMARIZE_API_URL = "http://rnlbe-34-10-192-241.a.free.pinggy.link/summarize"
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024  # 32 MB max upload size

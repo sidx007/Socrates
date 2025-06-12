@@ -6,12 +6,15 @@ from hdbscan import HDBSCAN
 
 
 def summarize_with_perplexity(text, model="sonar-pro", max_tokens=500, temperature=0.7):
-    if not api_key:
-        api_key = os.environ.get("PERPLEXITY_API_KEY")
+    # 1. Get the key from the environment FIRST.
+    api_key = os.environ.get("PERPLEXITY_API_KEY")
+
+    # 2. NOW, check if the key was actually found.
     if not api_key:
         print("Error: PERPLEXITY_API_KEY environment variable not set.")
-        return None
+        return None  # Exit the function if the key is missing
 
+    # The rest of your function remains exactly the same.
     url = "https://api.perplexity.ai/chat/completions"
     payload = {
         "model": model,
