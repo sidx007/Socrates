@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socrates - Audio to Summary</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Socrates <span class="subtitle">Audio Insight</span></h1>
+            <p>Transform your audio into organized insights</p>
+        </header>
+        
+        <div class="upload-container">
+            <div class="drop-area" id="dropArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Drag & Drop your audio file</h3>
+                <p>or</p>
+                <label for="fileInput" class="upload-btn">Choose a file</label>
+                <input type="file" id="fileInput" accept=".mp3,.wav" hidden>
+                <p class="file-info">Supported formats: .mp3, .wav</p>
+            </div>
+        </div>
+        
+        <div class="processing-container hidden" id="processingContainer">
+            <div class="processing-stage active" id="stageUpload">
+                <div class="stage-icon">
+                    <i class="fas fa-file-audio"></i>
+                </div>
+                <div class="stage-info">
+                    <h3>File Uploaded</h3>
+                    <p id="fileName">Processing: filename.mp3</p>
+                </div>
+                <div class="stage-status">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+            </div>
+            
+            <div class="processing-stage" id="stageTranscript">
+                <div class="stage-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <div class="stage-info">
+                    <h3>Transcribing Audio</h3>
+                    <p>Converting speech to text...</p>
+                </div>
+                <div class="stage-status">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+            
+            <div class="processing-stage" id="stageClustering">
+                <div class="stage-icon">
+                    <i class="fas fa-object-group"></i>
+                </div>
+                <div class="stage-info">
+                    <h3>Creating Clusters</h3>
+                    <p>Organizing content into related groups...</p>
+                </div>
+                <div class="stage-status">
+                    <div class="spinner hidden"></div>
+                </div>
+            </div>
+            
+            <div class="processing-stage" id="stageSummarizing">
+                <div class="stage-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="stage-info">
+                    <h3>Generating Summaries</h3>
+                    <p>Creating concise insights from clusters...</p>
+                </div>
+                <div class="stage-status">
+                    <div class="spinner hidden"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="results-container hidden" id="resultsContainer">
+            <h2>Your Audio Insights</h2>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="transcript">Transcript</button>
+                <button class="tab-btn" data-tab="clusters">Clusters</button>
+                <button class="tab-btn" data-tab="summaries">Summaries</button>
+            </div>
+            
+            <div class="tab-content active" id="transcript-content">
+                <div class="transcript-text" id="transcriptText">
+                    <!-- Transcript will be inserted here -->
+                </div>
+            </div>
+            
+            <div class="tab-content" id="clusters-content">
+                <div class="clusters-list" id="clustersList">
+                    <!-- Clusters will be inserted here -->
+                </div>
+            </div>
+            
+            <div class="tab-content" id="summaries-content">
+                <div class="summaries-list" id="summariesList">
+                    <!-- Summaries will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
