@@ -5,7 +5,7 @@ import umap.umap_ as umap
 from hdbscan import HDBSCAN
 
 
-def summarize_with_perplexity(text, api_key="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", model="sonar-pro", max_tokens=500, temperature=0.7):
+def summarize_with_perplexity(text, model="sonar-pro", max_tokens=500, temperature=0.7):
     if not api_key:
         api_key = os.environ.get("PERPLEXITY_API_KEY")
     if not api_key:
