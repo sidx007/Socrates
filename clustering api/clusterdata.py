@@ -72,8 +72,9 @@ class ClusterData:
                 sentence_indices = [i for i, label in enumerate(clusters) if label == cluster_label]
                 cluster_sentences = [sentences[i] for i in sentence_indices]
                 cluster_text = " ".join(cluster_sentences)
-            cluster_data.append(cluster_text)
+                cluster_data.append(cluster_text)  # This line was incorrectly indented
         return cluster_data
+
     def summarize_clusters(self, cluster_data):
         summaries = []
         for text in cluster_data:  
